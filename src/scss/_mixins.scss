@@ -1,0 +1,36 @@
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin hover-general {
+  transition: 0.2s;
+  &:hover {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+@mixin hover-opacity {
+  transition: 0.2s;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin tablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}

@@ -1,0 +1,67 @@
+.repair__swiper {
+  display: block;
+  background-color: $color-bg;
+  padding: 16px;
+}
+.repair__wrapper {
+  display: none;
+}
+.repair__element.swiper-slide {
+  height: 160px;
+  display: block;
+  position: relative;
+}
+.repair__element {
+  height: 160px;
+  position: relative;
+  display: block;
+}
+.repair__element .brand__icon {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+}
+
+  .swiper.repair__swiper {
+    padding-bottom: 32px;
+  }
+
+@include tablet {
+  .repair__swiper {
+    display: none;
+  }
+  .repair__wrapper {
+    display: block;
+    padding: 16px 24px;
+    background: $color-bg;
+  }
+
+  .repair__grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    .repair__element:nth-child(n + 4) {
+      display: none;
+    }
+    &.is-expanded .repair__element {
+      display: block;
+    }
+  }
+}
+@include desktop {
+  .repair__wrapper {
+    padding: 16px 32px;
+  }
+  .repair__grid {
+    grid-template-columns: repeat(4, 1fr);
+    .repair__element:nth-child(n + 4) {
+      display: block;
+    }
+    .repair__element:nth-child(n + 5) {
+      display: none;
+    }
+    &.is-expanded .repair__element {
+      display: block;
+    }
+  }
+}

@@ -1,17 +1,59 @@
-$bgColor: #24292e;
-$text: #fff;
-
-@font-face {
-  font-family: 'Comic';
-  src: url('../fonts/comic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
+@import 'fonts';
+@import 'variables';
+@import 'mixins';
+@import 'blocks/nav.scss';
+@import 'blocks/page.scss';
+@import 'blocks/sidebar.scss';
+@import 'blocks/brand.scss';
+@import 'blocks/repair.scss';
+@import 'blocks/price.scss';
+@import 'blocks/footer.scss';
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  padding: 1rem;
-  margin: 0;
-  font-family: Comic, sans-serif;
-  background-color: $bgColor;
-  color: $text;
+  font-family: $font-main;
+  font-weight: 400;
+  background: $color-bg;
+}
+
+header {
+  background: $color-white;
+}
+
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
+.title {
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: -0.2px;
+  line-height: 24px;
+  color: #7e7e82;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+}
+@include tablet {
+  .title {
+    padding: 16px 24px;
+  }
+}
+@include desktop {
+  .title {
+    padding: 16px 32px;
+  }
+}
+
+h3 {
+  padding: 16px;
+  width: 100%;
+  background: $color-white;
 }

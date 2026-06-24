@@ -1,0 +1,155 @@
+.price__swiper {
+  background: $color-bg;
+  padding: 16px;
+}
+.swiper-slide.price__element {
+  width: 260px;
+  height: 200px;
+  background: $color-white;
+  border: 1px solid $color-divider;
+  border-radius: $radius-sm;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.price__label {
+  font-size: 14px;
+  color: $color-text-secondary;
+}
+
+.price__title {
+  font-size: 14px;
+  flex: 1;
+}
+
+.price__meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.price__value {
+  font-size: 14px;
+  margin: 0;
+}
+
+.price__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: $color-primary;
+  color: $color-white;
+  border-radius: 24px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.15px;
+  text-decoration: none;
+  @include hover-general;
+}
+
+.price__btngroup {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+.swiper.price__swiper {
+  padding-bottom: 32px;
+}
+
+.price__table {
+  padding: 16px;
+  display: none;
+}
+.price__text {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  max-width: 421px;
+}
+
+.price__additional {
+  padding: 8px 16px;
+  .price__btn--link {
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    gap: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    background: none;
+    cursor: pointer;
+    margin-top: 16px;
+    @include hover-opacity;
+  }
+}
+@include tablet {
+  .price__swiper {
+    display: none;
+  }
+  .price__table {
+    background: $color-bg;
+    display: block;
+    overflow: hidden;
+    padding: 16px 24px;
+  }
+  .price__additional {
+    padding: 0 24px;
+  }
+  .price__table--wrapper {
+    background: $color-white;
+    border-radius: $radius-sm;
+  }
+  .price__row {
+    display: grid;
+    grid-template-columns: 1fr 120px 140px 160px;
+    align-items: center;
+    position: relative;
+    padding: 20px 24px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 24px;
+      right: 24px;
+      height: 1px;
+      background: $color-divider;
+    }
+
+    &:last-child::after {
+      display: none;
+    }
+    &--head {
+      background: $color-bg;
+      border-radius: none;
+      display: grid;
+      grid-template-columns: 1fr 120px 140px 160px;
+      align-items: center;
+      padding: 24px 24px;
+      span {
+        font-size: 14px;
+        color: $color-text-secondary;
+      }
+    }
+  }
+  .price__name,
+  .price__cost,
+  .price__time {
+    font-size: 14px;
+  }
+}
+
+@include desktop {
+  .price__table {
+    padding: 0px 32px;
+  }
+  .price__additional {
+    padding: 32px;
+  }
+}

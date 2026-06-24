@@ -1,0 +1,110 @@
+.brand__swiper {
+  display: block;
+  background-color: $color-bg;
+  padding: 16px;
+}
+
+.swiper-slide.brand__element {
+  width: 240px;
+  height: 72px;
+}
+
+.brand__wrapper {
+  display: none;
+}
+
+.swiper {
+  padding-bottom: 32px;
+  .swiper-pagination {
+    bottom: 0;
+  }
+  .swiper-pagination-bullet {
+    background: $color-divider;
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: $color-text-secondary;
+  }
+}
+
+.brand__element {
+  @include flex-between;
+  background: $color-white;
+  padding: 16px;
+  border-radius: $radius-sm;
+  gap: 16px;
+  border: 1px solid $color-divider;
+}
+
+.brand__icon {
+  border: 2px solid $color-primary;
+  padding: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $radius-round;
+  @include hover-general;
+}
+
+
+.brand__more {
+  background: none;
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 16px;
+  @include hover-opacity; 
+
+}
+.brand__more--active {
+  img {
+    transform: rotate(180deg);
+  }
+}
+@include tablet {
+  .brand__swiper {
+    display: none;
+  }
+  .brand__more {
+    display: flex;
+  }
+  .brand__wrapper {
+    display: block;
+    padding: 16px 24px;
+    background: $color-bg;
+  }
+  .brand__grid {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    .brand__element:nth-child(n + 7) {
+      display: none;
+    }
+
+    &.is-expanded .brand__element {
+      display: flex;
+    }
+  }
+}
+
+@include desktop {
+  .brand__wrapper {
+    padding: 16px 32px;
+  }
+  .brand__grid {
+    grid-template-columns: repeat(4, 1fr);
+    .brand__element:nth-child(n + 9) {
+      display: none;
+    }
+    &.is-expanded .brand__element {
+      display: flex;
+    }
+  }
+}

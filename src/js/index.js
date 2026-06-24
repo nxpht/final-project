@@ -1,3 +1,9 @@
 import '../scss/style.scss'
-
-console.log('It works!')
+import { createSwipers } from './swiper'
+import { sidebar } from './sidebar'
+import { tabsFn } from './tabs'
+import { expand } from './expand'
+createSwipers()
+sidebar()
+tabsFn()
+expand()
