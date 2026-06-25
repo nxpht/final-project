@@ -9,8 +9,33 @@ const swiperConfig = {
   }
 }
 
-export const createSwipers = () => {
-    new Swiper ('.brand__swiper', swiperConfig);
-    new Swiper ('.repair__swiper', swiperConfig);
-    new Swiper ('.price__swiper', swiperConfig);
+let brandSwiper = null
+let repairSwiper = null
+let priceSwiper = null
+export function createSwipers() {
+  if (window.innerWidth < 768) {
+    if (!brandSwiper) {
+      brandSwiper = new Swiper('.brand__swiper', swiperConfig)
+    }
+    if (!repairSwiper) {
+      repairSwiper = new Swiper('.repair__swiper', swiperConfig)
+    }
+    if (!priceSwiper) {
+      priceSwiper = new Swiper('.price__swiper', swiperConfig)
+    }
+  } else {
+    if (brandSwiper) {
+      brandSwiper.destroy(true, true)
+      brandSwiper = null
+    }
+    if (repairSwiper) {
+      repairSwiper.destroy(true, true)
+      repairSwiper = null
+    }
+    if (priceSwiper) {
+      priceSwiper.destroy(true, true)
+      priceSwiper = null
+    }
+  }
 }
+

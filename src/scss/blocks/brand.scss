@@ -1,7 +1,10 @@
+.brand {
+  background: $color-bg;
+}
+
 .brand__swiper {
-  display: block;
-  background-color: $color-bg;
   padding: 16px;
+  padding-bottom: 32px;
 }
 
 .swiper-slide.brand__element {
@@ -9,20 +12,37 @@
   height: 72px;
 }
 
-.brand__wrapper {
-  display: none;
+.brand__element {
+  @include flex-between;
+  padding: 16px;
+  background: $color-white;
+  border: 1px solid $color-divider;
+  border-radius: $radius-sm;
+  gap: 16px;
+}
+
+.brand__icon {
+  border: 2px solid $color-primary;
+  border-radius: $radius-round;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  @include hover-general;
 }
 
 .swiper {
-  padding-bottom: 32px;
   .swiper-pagination {
     bottom: 0;
   }
+
   .swiper-pagination-bullet {
-    background: $color-divider;
-    opacity: 1;
     width: 12px;
     height: 12px;
+    opacity: 1;
+    background: $color-divider;
   }
 
   .swiper-pagination-bullet-active {
@@ -30,81 +50,73 @@
   }
 }
 
-.brand__element {
-  @include flex-between;
-  background: $color-white;
-  padding: 16px;
-  border-radius: $radius-sm;
-  gap: 16px;
-  border: 1px solid $color-divider;
-}
-
-.brand__icon {
-  border: 2px solid $color-primary;
-  padding: 12px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: $radius-round;
-  @include hover-general;
-}
-
-
 .brand__more {
-  background: none;
   display: none;
   align-items: center;
   gap: 8px;
-  font-size: 16px;
+  margin-left: 24px;
+  background: none;
   border: none;
   cursor: pointer;
-  margin-top: 16px;
-  @include hover-opacity; 
+  font-size: 16px;
+  margin-bottom: 16px;
 
-}
-.brand__more--active {
-  img {
+  @include hover-opacity;
+
+  &--active img {
     transform: rotate(180deg);
   }
 }
+
 @include tablet {
   .brand__swiper {
+    padding: 16px 24px;
+  }
+
+  .swiper-pagination {
     display: none;
   }
-  .brand__more {
+
+  .brand__grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .brand__element {
+    width: auto !important;
+  }
+
+  .brand__grid .brand__element:nth-child(n + 7) {
+    display: none;
+  }
+
+  .brand__grid.is-expanded .brand__element {
     display: flex;
   }
-  .brand__wrapper {
-    display: block;
-    padding: 16px 24px;
-    background: $color-bg;
-  }
-  .brand__grid {
-    display: grid;
-    gap: 24px;
-    grid-template-columns: repeat(3, 1fr);
-    .brand__element:nth-child(n + 7) {
-      display: none;
-    }
 
-    &.is-expanded .brand__element {
-      display: flex;
-    }
+  .brand__more {
+    display: flex;
   }
 }
 
 @include desktop {
-  .brand__wrapper {
+  .brand__swiper {
     padding: 16px 32px;
   }
+  .brand__grid .brand__element:nth-child(n + 7) {
+    display: flex;
+  }
+
   .brand__grid {
     grid-template-columns: repeat(4, 1fr);
-    .brand__element:nth-child(n + 9) {
-      display: none;
-    }
-    &.is-expanded .brand__element {
-      display: flex;
-    }
+  }
+
+  .brand__grid .brand__element:nth-child(n + 9) {
+    display: none;
+  }
+
+  .brand__grid.is-expanded .brand__element {
+    display: flex;
   }
 }
